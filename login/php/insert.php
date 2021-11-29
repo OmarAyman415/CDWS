@@ -1,9 +1,7 @@
 <?php
-	$connect=mysqli_connect("localhost","root","","cdws") or die("Connection Faild");
-	if(!empty($_POST['save']))
-	{
-		$username=$_POST['email'];
-		$password=$_POST['password'];
+$username=$_POST['email'];
+$password=$_POST['password'];
+	$connect=mysqli_connect("localhost","root","12345","cdws") ;  
 		$query="select * from login where username='$username' and password ='$password'";
 		$result=mysqli_query($connect,$query);
 		$count=mysqli_num_rows($result);
@@ -15,5 +13,5 @@
 		{
 			echo"login not successful";
 		}
-	}
+	
 ?>
