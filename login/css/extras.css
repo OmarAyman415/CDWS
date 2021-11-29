@@ -4,8 +4,9 @@ img.logo {
   width: 200px;
 }
 
-.h1 .text-center {
+.login-text {
   font-size: 50px;
+  margin-bottom: 10%;
 }
 
 .jost {
