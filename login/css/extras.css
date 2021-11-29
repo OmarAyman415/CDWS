@@ -1,4 +1,17 @@
 img.logo {
-  padding-bottom: 5%;
-  margin-left: 42%;
+  padding-bottom: 13%;
+  margin-left: 32%;
+  width: 200px;
+}
+
+.h1 .text-center {
+  font-size: 50px;
+}
+
+.jost {
+  font-family: jost;
+}
+@font-face {
+  font-family: "jost";
+  src: url(../fonts/Jost-Regular.ttf);
 }
