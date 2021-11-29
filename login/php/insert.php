@@ -1,9 +1,6 @@
 <?php
-	define("DB_HOST", "localhost");
-    define("DB_USER", "root");
-    define("DB_PASSWORD", "@#Omar415");
-    define("DB_DATABASE", "cdws");
-	$connect = mysqli_connect(DB_HOST,DB_USER,"",DB_DATABASE,);
+
+	$connect = mysqli_connect("localhost","root","","cdws");
 	if($connect->connect_error){
 		die('connection Failed : '. $connect->connect_error);
 	}
