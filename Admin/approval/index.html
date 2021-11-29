@@ -210,6 +210,14 @@
         </div>
       </div>
     </section>
+    <script>
+      var table = document.getElementById("table");
+      var record = table.rows[1].cells[2].innerHTML;
+      for (let x = 3; x < table.rows.length; x++) {
+        record.push(table.rows[1].cells[x].innerHTML);
+      }
+    </script>
+
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
