@@ -225,9 +225,6 @@
     </section>
 
     <div id="hides" class="printRecord hidden">
-      <div class="col-md-12 text-right mb-3">
-        <button class="btn btn-primary" id="download">download pdf</button>
-      </div>
       <!-- PDF Content -->
       <div class="col-md-12">
         <div class="card" id="invoice">
@@ -423,18 +420,16 @@
       }
       function printSection(index) {
         var table = document.getElementById("table");
-        var record = [table.rows[index].cells[1].innerHTML];
-        record.push(test());
-        function test() {
-          return [
-            table.rows[index].cells[2].innerHTML,
-            table.rows[index].cells[3].innerHTML,
-            table.rows[index].cells[4].innerHTML,
-          ];
-        }
+        var record = [
+          table.rows[index].cells[1].innerHTML,
+          table.rows[index].cells[2].innerHTML,
+          table.rows[index].cells[3].innerHTML,
+          table.rows[index].cells[4].innerHTML,
+        ];
+
         document.getElementById("hides").style.display = "block";
         document.getElementById("name").innerText = record[0];
-        document.getElementById("foundation").innerText = record[2];
+        document.getElementById("foundation").innerText = record[1];
         var WinPrint = window.open(
           "",
           "",
