@@ -4,7 +4,7 @@
 		//die('connection Failed : '. $connect->connect_error);
 	//}
 	//else{
-	if (isset($_POST['submit'])) {
+	if (isset($_POST['submit']) ){
 		$username=$_POST['email'];
 		$password=$_POST['password'];
 		$query="select * from login where username='$username' and password ='$password'";
