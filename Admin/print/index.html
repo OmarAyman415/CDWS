@@ -430,15 +430,30 @@
         document.getElementById("hides").style.display = "block";
         document.getElementById("name").innerText = record[0];
         document.getElementById("foundation").innerText = record[1];
+
+        var prtContent = document.getElementById("hides");
         var WinPrint = window.open(
           "",
           "",
           "left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0"
         );
-        WinPrint.document.write(record);
+        WinPrint.document.write(prtContent.innerHTML);
+        WinPrint.document.write('<link rel="stylesheet" href="css/pdf.css"/>');
+        WinPrint.document.write(
+          '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous"/>'
+        );
         WinPrint.document.close();
         WinPrint.focus();
         WinPrint.print();
+        // var WinPrint = window.open(
+        //   "",
+        //   "",
+        //   "left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0"
+        // );
+        // WinPrint.document.write(record);
+        // WinPrint.document.close();
+        // WinPrint.focus();
+        // WinPrint.print();
       }
     </script>
 
