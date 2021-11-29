@@ -51,26 +51,20 @@
                 </thead>
                 <!-- Table body -->
                 <tbody>
-                  <tr>
+                  
                       <?php
-                      $connection = mysqli_connect("localhost","root","","Database_Name");
-                      $sqlQuery = "SELECT * FROM tableName";
-                      $result = $connection->query($sqlQuery);
-
-                      if($result->num_rows > 0){
-                        $IDS = 1;
-                          while($row = $result->fetch_assoc()){
-                              echo '<tr> <th scope="row" class="scope">' . $row["col1_name"] . '</th> <td>'. $row["col2_name"]. '</td> <td>'. $row["col3_name"]. '</td> <td>'. $row["col4_name"]. '</td> <td>'. $row["col5_name"]. '</td> <td>'. $row["col6_name"]. '</td> <td>'. $row["col7_name"]. '</td> <td>'. $row["col8_name"]. '</td> <td>'. $row["col9_name"]. '</td> <td>'. $row["col10_name"]. '</td> <td>'. $row["col11_name"]. '</td> <td>'. $row["col12_name"]. '</td> <td>'. $row["col13_name"]. '</td> <td>'. $row["col14_name"]. '</td> <td>'. '<button onclick="getValue('. $x .')" class="btn btn-primary">Print</button>' .'</td> </tr>';
-                          }
-                      }
-                      else{
-                          echo "No results";
+                      $username = "root";
+                      $password = "";
+                      $server = 'localhost';
+                      $db = 'cdws';
+                      $connect = mysqli_connect($server,$username,"",$db);
+                      $sqlQuery = "SELECT * FROM persons";
+                      $query = mysqli_query($connect,$sqlQuery);
+                      while($row = $query->fetch_assoc()){
+                        echo '<tr id="'. $row["ssn"].'"> <th scope="row"  class="scope">' . $row["ssn"] . '</th> <td>'. $row["name"]. '</td> <td>'. $row["phone"]. '</td> <td>'. $row[email]. '</td> <td>'. $row[4]. '</td> <td>'. $row[5]. '</td> <td>'. $row[6]. '</td> <td>'. $row[0]. '</td> <td>'. $row[1]. '</td> <td>'. $row[2]. '</td> <td>'. $row[3]. '</td> <td>'. $row[4]. '</td> <td>'. $row[5]. '</td> <td>'. $row[6]. '</td> <td>'. '<button onclick="getValue('. $x .')" class="btn btn-primary">Print</button>' .'</td> </tr>';
                       }
                       $connection-> close();
-                      ?>
-                    
-                  </tr>
-                  
+                      ?> 
                 </tbody>
               </table>
             </div>
