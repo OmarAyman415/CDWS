@@ -5,3 +5,7 @@
 .printButton {
   width: 300px;
 }
+
+.printSection {
+  display: none;
+}

@@ -80,7 +80,7 @@
                     <td>
                       <button
                         href="#"
-                        onclick="printSection()"
+                        onclick="printSection(1)"
                         class="btn btn-primary"
                       >
                         print
@@ -221,10 +221,9 @@
       </div>
     </section>
 
-    <div id="prints">
-      <p>sdfgdfgdfg</p>
-    </div>
-
+    <section class="printRecord hidden">
+      <p>dsfsdf</p>
+    </section>
     <script>
       function printFunction() {
         window.print();
@@ -238,14 +237,23 @@
           );
         }
       }
-      function printSection() {
-        var prtContent = document.getElementById("test1");
+      function printSection(index) {
+        var table = document.getElementById("table");
+        var record = [table.rows[index].cells[1].innerHTML];
+        record.push(test());
+        function test() {
+          return [
+            table.rows[index].cells[2].innerHTML,
+            table.rows[index].cells[3].innerHTML,
+            table.rows[index].cells[4].innerHTML,
+          ];
+        }
         var WinPrint = window.open(
           "",
           "",
           "left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0"
         );
-        WinPrint.document.write(prtContent.innerHTML);
+        WinPrint.document.write(record);
         WinPrint.document.close();
         WinPrint.focus();
         WinPrint.print();
