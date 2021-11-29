@@ -59,7 +59,8 @@
 
                       if($result->num_rows > 0){
                           while($row = $result->fetch_assoc()){
-                              echo '<th scope="row" class="scope">' . $row["col1_name"] . '</th> <td>'. $row["col2_name"]. '</td> <td>'. $row["col3_name"]. '</td> <td>'. $row["col4_name"]. '</td> <td>'. $row["col5_name"]. '</td> <td>'. $row["col6_name"]. '</td> <td>'. $row["col7_name"]. '</td> <td>'. $row["col8_name"]. '</td> <td>'. $row["col9_name"]. '</td> <td>'. $row["col10_name"]. '</td> <td>'. $row["col11_name"]. '</td> <td>'. $row["col12_name"]. '</td> <td>'. $row["col13_name"]. '</td> <td>'. $row["col14_name"]. '</td> <td>'. $row["col15_name"];
+                              echo '<th scope="row" class="scope">' . $row["col1_name"] . '</th> <td>'. $row["col2_name"]. '</td> <td>'. $row["col3_name"]. '</td> <td>'. $row["col4_name"]. '</td> <td>'. $row["col5_name"]. '</td> <td>'. $row["col6_name"]. '</td> <td>'. $row["col7_name"]. '</td> <td>'. $row["col8_name"]. '</td> <td>'. $row["col9_name"]. '</td> <td>'. $row["col10_name"]. '</td> <td>'. $row["col11_name"]. '</td> <td>'. $row["col12_name"]. '</td> <td>'. $row["col13_name"]. '</td> <td>'. $row["col14_name"]. '</td> <td>'. '<a href="#" class="btn btn-primary">Approval</a>
+                              <a href="#" class="btn btn-primary">Denial</a>' .'</td>';
                           }
                       }
                       else{
