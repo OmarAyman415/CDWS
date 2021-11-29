@@ -1,5 +1,5 @@
 <?php
-	$connect=mysqli_connect("localhost","root","","phpclasses") or die("Connection Faild");
+	$connect=mysqli_connect("localhost","root","","cdws") or die("Connection Faild");
 	if(!empty($_POST['save']))
 	{
 		$username=$_POST['email'];
