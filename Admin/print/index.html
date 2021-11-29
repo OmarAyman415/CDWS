@@ -62,7 +62,7 @@
                 </thead>
                 <!-- Table body -->
                 <tbody>
-                  <tr>
+                  <tr id="test1">
                     <th scope="row" class="scope">.com</th>
                     <td>1 Year</td>
                     <td>$70.00</td>
@@ -80,7 +80,7 @@
                     <td>
                       <button
                         href="#"
-                        onclick="getValue()"
+                        onclick="printSection()"
                         class="btn btn-primary"
                       >
                         print
@@ -221,6 +221,10 @@
       </div>
     </section>
 
+    <div id="prints">
+      <p>sdfgdfgdfg</p>
+    </div>
+
     <script>
       function printFunction() {
         window.print();
@@ -233,6 +237,18 @@
             document.getElementById("table").rows[index].cells[index].innerHTML
           );
         }
+      }
+      function printSection() {
+        var prtContent = document.getElementById("test1");
+        var WinPrint = window.open(
+          "",
+          "",
+          "left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0"
+        );
+        WinPrint.document.write(prtContent.innerHTML);
+        WinPrint.document.close();
+        WinPrint.focus();
+        WinPrint.print();
       }
     </script>
 
