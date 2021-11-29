@@ -1,9 +1,9 @@
 <?php
 	$connect = mysqli_connect("localhost","root","","cdws");
-	if($connect->connect_error){
-		die('connection Failed : '. $connect->connect_error);
-	}
-	else{
+	//if($connect->connect_error){
+		//die('connection Failed : '. $connect->connect_error);
+	//}
+	//else{
 	if(!empty($_POST['save'])){
 		$username=$_POST['email'];
 		$password=$_POST['password'];
@@ -19,5 +19,5 @@
 			echo"login not successful";
 		}
 	}
-	}
+	//}
 ?>
