@@ -23,10 +23,11 @@ header{
 	justify-content: space-between;
 	padding: 15px 20px;
 }
-header .logo{
-	font-size: 30px;
-	color: white;
+
+.img{
+    width: 100px;
 }
+
 .all{
     display: flex;
     justify-content: center;
