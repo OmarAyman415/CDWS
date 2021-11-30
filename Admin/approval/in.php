@@ -3,8 +3,8 @@ require('../../Config/Database.php');
                     //create query
                     $query = 'SELECT
                     p.ssn,
-                    p.name,
-                    f.name,
+                    p.name, 
+                    f.name as foundation_name,
                     f.foundationId,
                     f.licenceid,
                     f.idNumberRoom,
@@ -33,8 +33,8 @@ require('../../Config/Database.php');
                     $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     
                     //see the data
-                    //var_dump($posts);
-                    echo $posts['name'];
+                    //ar_dump($posts);
+                    //print_r($posts[0]);
                     //free the result
                     mysqli_free_result($result);
                     mysqli_close($conn);
@@ -115,9 +115,11 @@ require('../../Config/Database.php');
                           <td>$13</td>
                           <td>$14</td>
                           <td><?php 
-                          echo $post['ssn'];
+                          echo $post['name'];
                           ?></td>
-                          <th scope="row" class="scope">$post</th>
+                          <th scope="row" class="scope"><?php 
+                          echo $post['ssn'];
+                          ?></th>
                           </tr>
                       <?php endforeach; ?>
                     <!-- <td>
