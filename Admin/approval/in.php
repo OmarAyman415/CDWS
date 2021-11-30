@@ -1,43 +1,47 @@
 <?php
 require('../../Config/Database.php');
-                    //create query
-                    $query = 'SELECT
-                    p.ssn,
-                    p.name, 
-                    f.name as foundation_name,
-                    f.foundationId,
-                    f.licenceId,
-                    f.idNumberRoom,
-                    f.place,
-                    a.state,
-                    auth.phone as authorize_phone,
-                    auth.idNumber as idMember,
-                    p.phone,
-                    p.email,
-                    p.adjId,
-                    p.ssnVisitor,
-                    p.approven
-                    FROM persons p
-                    left JOIN
-                    foundation f ON p.ssn = f.ssnPerson
-                    LEFT JOIN 
-                    adj_id a ON a.id = p.adjId
-                    LEFT JOIN
-                    authorize auth ON auth.ssn = p.ssnVisitor
-                    ';
-                    //Get results
-                    $result = mysqli_query($conn, $query);
+  //create query
+  $query = 'SELECT
+  p.ssn,
+  p.name, 
+  f.name as foundation_name,
+  f.foundationId,
+  f.licenceId,
+  f.idNumberRoom,
+  f.place,
+  a.state,
+  auth.phone as authorize_phone,
+  auth.idNumber as idMember,
+  p.phone,
+  p.email,
+  p.adjId,
+  p.ssnVisitor,
+  p.approven
+  FROM persons p
+  left JOIN
+  foundation f ON p.ssn = f.ssnPerson
+  LEFT JOIN 
+  adj_id a ON a.id = p.adjId
+  LEFT JOIN
+  authorize auth ON auth.ssn = p.ssnVisitor
+  ';
+  //Get results
+  $result = mysqli_query($conn, $query);
 
-                    //Fetch data
-                    $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+  //Fetch data
+  $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     
-                    //see the data
-                    //var_dump($posts);
-                    //print_r($posts[0]);
-                    //var_dump($posts[1]['approven']);
-                    //free the result
-                    mysqli_free_result($result);
-                    mysqli_close($conn);
+  //see the data
+      //var_dump($posts);
+      //print_r($posts[0]);
+      //var_dump($posts[1]['approven']);
+      //free the result
+      
+  //free result Value
+  mysqli_free_result($result);
+
+  //End Connection
+  mysqli_close($conn);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,7 +75,7 @@ require('../../Config/Database.php');
             <div class="table-wrap">
               <table class="table">
                 <thead class="thead-primary">
-                  <!-- Columns Heads -->
+                  <!-- Columns Heads or The Titles -->
                   <tr>
                     <th>الحالة</th>
                     <th>رقم العضوية (المفوض)</th>
@@ -90,6 +94,7 @@ require('../../Config/Database.php');
                     <th>ID</th>
                   </tr>
                 </thead>
+
                 <!-- Table body -->
                 <tbody>
                   
@@ -97,14 +102,20 @@ require('../../Config/Database.php');
                       <?php foreach($posts as $post) :?>
                         <tr>
                           <td>
+                            <!-- form of Approval and Denial  buttons  -->
                             <form action="php/appro_deny.php" method="post">
+                              <!-- Approval buttton -->
                               <input id=<?php echo $post['ssn'] ?> type="submit" class="btn btn-primary" name="submit" value="Approval">
-                                <input type="text" name="ssn" value="<?php echo $post['ssn'] ?>" style="display:none;">
+                                <!-- input field that stores SSN of the record to push it to appro_deny.php -->
+                              <input type="text" name="ssn" value="<?php echo $post['ssn'] ?>" style="display:none;">
+                              <!-- Denial Button -->
                               <input id=<?php echo $post['ssn'] ?> type="submit" class="btn btn-primary" name="denial" value="Denial">
                             </form>
                           </td>
+
                           <!-- Authorized ID member -->
                           <td><?php
+                          // As the defualt value in database is NULL
                               if($post['idMember'] == NULL){
                                 echo "None";
                               }
@@ -130,7 +141,8 @@ require('../../Config/Database.php');
                           echo $post['idNumberRoom'];
                           ?></td>
                           <!-- authorized Phone number -->
-                          <td><?php 
+                          <td><?php
+                          // As the defualt value in database is NULL
                           if($post['authorize_phone'] == NULL){
                             echo "None";
                           }
@@ -139,7 +151,8 @@ require('../../Config/Database.php');
                           }
                           ?></td>
                           <!-- authorized Natioonal ID -->
-                          <td><?php 
+                          <td><?php
+                          // As the defualt value in database is NULL
                           if($post['ssnVisitor'] == NULL){
                             echo "None";
                           }
@@ -149,6 +162,7 @@ require('../../Config/Database.php');
                           ?></td>
                           <!-- authorize -->
                           <td><?php 
+                          // As the defualt value in database is NULL
                           if($post['approven'] == NULL || $post['approven'] == "0"){
                           echo 'False';
                           }
@@ -174,16 +188,13 @@ require('../../Config/Database.php');
                           <td><?php 
                           echo $post['name'];
                           ?>
-                          <!-- SSN -->
+                          <!-- SSN Or ID-->
                           </td>
                           <th scope="row" class="scope" name="ssn"><?php 
                           echo $post['ssn'];
                           ?></th>
                           </tr>
-                      <?php endforeach; ?>
-                 
-                  
-                  
+                       <?php endforeach; ?> <!-- End OF the Foreach loop -->
                 </tbody>
               </table>
             </div>
@@ -192,7 +203,7 @@ require('../../Config/Database.php');
         </div>
       </div>
     </section>
-
+    <!-- Scripts -->
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
