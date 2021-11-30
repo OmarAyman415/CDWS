@@ -17,13 +17,22 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+}
+header{
+	display: flex;
+	justify-content: space-between;
+	padding: 15px 20px;
+}
+header .logo{
+	font-size: 30px;
+	color: white;
+}
+.all{
     display: flex;
     justify-content: center;
     align-items: center;
     padding-top: 20px;
 }
-
-
 .login-box {
     position: relative;
     width: 800px;
