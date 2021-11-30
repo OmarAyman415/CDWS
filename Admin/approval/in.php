@@ -6,7 +6,7 @@ require('../../Config/Database.php');
                     p.name, 
                     f.name as foundation_name,
                     f.foundationId,
-                    f.licenceid,
+                    f.licenceId,
                     f.idNumberRoom,
                     f.place,
                     a.state,
@@ -20,7 +20,6 @@ require('../../Config/Database.php');
                     FROM persons p
                     left JOIN
                     foundation f ON p.ssn = f.ssnPerson
-                    
                     LEFT JOIN 
                     adj_id a ON a.id = p.adjId
                     LEFT JOIN
@@ -33,8 +32,9 @@ require('../../Config/Database.php');
                     $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     
                     //see the data
-                    //ar_dump($posts);
+                    //var_dump($posts);
                     //print_r($posts[0]);
+                    //var_dump($posts[1]['approven']);
                     //free the result
                     mysqli_free_result($result);
                     mysqli_close($conn);
@@ -74,12 +74,12 @@ require('../../Config/Database.php');
                   <!-- Columns Heads -->
                   <tr>
                     <th>الحالة</th>
-                    <th>رقم العضوية</th>
+                    <th>رقم العضوية (المفوض)</th>
                     <th>رقم الترخيص</th>
                     <th>المقر</th>
                     <th>اسم المنشأة</th>
-                    <th>رقم الهاتف (المفوض)</th>
                     <th>رقم بطاقة الغرفة</th>
+                    <th>رقم الهاتف (المفوض)</th>
                     <th>رقم الفومي (المفوض)</th>
                     <th>تفويض</th>
                     <th>الصفة</th>
@@ -97,37 +97,91 @@ require('../../Config/Database.php');
                       <?php foreach($posts as $post) :?>
                         <tr>
                           <td>
-                          <button onclick="" href="#" class="btn btn-primary">
-                            Approval
-                          </button>
-                          <button onclick="" class="btn btn-primary">Denial</button>
+                            <form action="php/approve.php" method="post">
+                              <input id=<?php echo $post['ssn'] ?> type="submit" class="btn btn-primary" name="submit" value="Approval">
+                                <input type="text" name="ssn" value="<?php echo $post['ssn'] ?>" style="display:none;">
+                              <input id=<?php echo $post['ssn'] ?> type="submit" class="btn btn-primary" name="denial" value="Denial">
+                            </form>
                           </td>
-                          <td>1 Year</td>
-                          <td>$70.00</td>
-                          <td>$5.00</td>
-                          <td>$5.00</td>
-                          <td>$7</td>
-                          <td>$8</td>
-                          <td>$9</td>
-                          <td>$10</td>
-                          <td>$11</td>
-                          <td>$12</td>
-                          <td>$13</td>
+                          <!-- Authorized ID member -->
+                          <td><?php
+                              if($post['idMember'] == NULL){
+                                echo "None";
+                              }
+                              else{
+                              echo $post['idMember'];
+                              }
+                            ?>
+                          </td>
+                          <!-- Licence ID -->
+                          <td><?php 
+                          echo $post['licenceId'];
+                          ?></td>
+                          <!-- HQ place -->
+                          <td><?php 
+                          echo $post['place'];
+                          ?></td>
+                          <!-- Foundation name -->
+                          <td><?php 
+                          echo $post['foundation_name'];
+                          ?></td>
+                          <!-- Room ID -->
+                          <td><?php 
+                          echo $post['idNumberRoom'];
+                          ?></td>
+                          <!-- authorized Phone number -->
+                          <td><?php 
+                          if($post['authorize_phone'] == NULL){
+                            echo "None";
+                          }
+                          else{
+                          echo $post['authorize_phone'];
+                          }
+                          ?></td>
+                          <!-- authorized Natioonal ID -->
+                          <td><?php 
+                          if($post['ssnVisitor'] == NULL){
+                            echo "None";
+                          }
+                          else{
+                          echo $post['ssnVisitor'];
+                          }
+                          ?></td>
+                          <!-- authorize -->
+                          <td><?php 
+                          if($post['approven'] == NULL || $post['approven'] == "0"){
+                          echo 'False';
+                          }
+                          else{
+                            echo 'True';
+                          }
+                          ?></td>
+                          <!-- State -->
+                          <td><?php 
+                          echo $post['state'];
+                          ?></td>
+                          <!-- Email -->
+                          <td><?php 
+                          echo $post['email'];
+                          ?></td>
+                          <!-- phone number -->
+                          <td><?php 
+                          echo $post['phone'];
+                          ?></td>
+                          <!-- National ID -->
                           <td>$14</td>
+                          <!-- Name -->
                           <td><?php 
                           echo $post['name'];
-                          ?></td>
-                          <th scope="row" class="scope"><?php 
+                          ?>
+                          <!-- SSN -->
+                          </td>
+                          <th scope="row" class="scope" name="ssn"><?php 
                           echo $post['ssn'];
                           ?></th>
                           </tr>
                       <?php endforeach; ?>
-                    <!-- <td>
-                      echo '<th scope="row" class="scope">' . $row["col1_name"] . '</th> <td>'. $row["col2_name"]. '</td> <td>'. $row["col3_name"]. '</td> <td>'. $row["col4_name"]. '</td> <td>'. $row["col5_name"]. '</td> <td>'. $row["col6_name"]. '</td> <td>'. $row["col7_name"]. '</td> <td>'. $row["col8_name"]. '</td> <td>'. $row["col9_name"]. '</td> <td>'. $row["col10_name"]. '</td> <td>'. $row["col11_name"]. '</td> <td>'. $row["col12_name"]. '</td> <td>'. $row["col13_name"]. '</td> <td>'. $row["col14_name"]. '</td> <td>'. '<a href="#" class="btn btn-primary">Approval</a>
-                              <a href="#" class="btn btn-primary">Denial</a>' .'</td>';
-                      <a href="#" class="btn btn-primary">Approval</a>
-                      <a href="#" class="btn btn-primary">Denial</a>
-                    </td> -->
+                 
                   
                   
                 </tbody>
