@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="Form.js"></script>
+    <link rel="stylesheet" href="Form.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="login-box">
+    <h2 style="font-size: 30px;">نموذج إخطار بالمُمثل القانوني للمُ نشأة المُعتمد لدى الوزارة والغرفة</h2>
+    <form>
+      <div class="user-box">
+        <input type="text" name="" required="" dir="auto" >
+        <label class ="name">الأسم</label>
+      </div>
+      <div class="user-box">
+        <input type="number" name="" required="">
+        <label class="idnumb">الرقم القومي</label>
+      </div>
+      <div class="user-box">
+        <input type="number" name="" required="">
+        <label class="numb">رقم الهاتف</label>
+      </div>
+      <div class="user-box">
+        <input class ="email" type="email" name="" required="" dir="auto">
+        <label>البريد الالكتروني</label>
+      </div>
+      <div>
+
+        <label class="rad-label">
+          <input type="radio" class="rad-input" name="rad">
+          <div class="rad-design"></div>
+          <div class="rad-text">رئيس مجلس الإدارة أو العُضو المُنتدب في شركات الأموال بحسب الأحوال.</div>
+        </label>
+      
+        <label class="rad-label">
+          <input type="radio" class="rad-input" name="rad">
+          <div class="rad-design"></div>
+          <div class="rad-text">الشريك المُتضامن المنوط به الإدارة في شركات الأشخاص.</div>
+        </label>
+      
+        <label class="rad-label">
+          <input type="radio" class="rad-input" name="rad">
+          <div class="rad-design"></div>
+          <div class="rad-text">عُضو مجلس الإدارة من مالكي لأسهُم في شركات المُساهمة.</div>
+        </label>
+      
+        <label class="rad-label">
+          <input type="radio" class="rad-input" name="rad">
+          <div class="rad-design"></div>
+          <div class="rad-text">من أصحاب الحصص بالشركات ذات المسئولية المحدودة.</div>
+        </label>
+
+        <label class="rad-label">
+          <input type="radio" class="rad-input" name="rad">
+          <div class="rad-design"></div>
+          <div class="rad-text">مالك المُنشأة الفردية.</div>
+        </label>
+        <br>
+        <hr>
+        <br>
+        <div style="text-align: right; color: white; font-size: 25px;">: من فضلك قم بتحديد الشخص الذي سوف يقوم بحضور الجمعية العمومية</div>
+        <div class="radiobutton2">
+          <label class="rad-label">
+            <input type="radio" class="rad-input" name="rad2" id="radio1" onclick="myfunction4()">
+            <div class="rad-design"></div>
+            <div class="rad-text">سوف أحضر بنفسي.</div>
+          </label>
+        
+          <label class="rad-label">
+            <input type="radio" class="rad-input" name="rad2" id="radio2" onclick="myfunction3()">
+            <div class="rad-design"></div>
+            <div class="rad-text">أفوض المُدير الفني المسئول عن المُنشأة المُرخص له من وزارة السياحة والآثار  (يجب أن يكون المدير المسئول مسجل
+              بالفعل بترخيص وزارة السياحة والآثار)</div>
+          </label>
+          <div class="Hidden" id="Hidden" style="display: none;">
+            <div class="user-box">
+              <input type="number" name="" required="">
+              <label class="numb2">الرقم القومي</label>
+            </div>
+            <div class="user-box">
+              <input type="number" name="" required="">
+              <label class="numb">رقم الغرفة</label>
+            </div>
+            <div class="user-box">
+              <input type="number" name="" required="">
+              <label class="numb">رقم الهاتف</label>
+            </div>
+            <div class="user-box">
+              <input class ="email" type="email" name="" required="" dir="auto">
+              <label>البريد الالكتروني</label>
+            </div>
+          </div>
+        </div>
+      <br>
+      <hr>
+      <br>
+      
+      <div style="text-align: right; color: white; font-size: 25px;">: لحضور الجمعية العمومية عن المنشأة/ المنشآت التالية</div>
+      <br><br><br><br>
+      <div class="user-box">
+        <input type="text" name="" required="" dir="auto" >
+        <label class ="nameof">أسم المنشأة</label>
+      </div>
+      <br><br>
+      <div class="user-box">
+        <input type="text" name="" required="" dir="auto" >
+        <label class ="place">المقر</label>
+      </div>
+      <br><br><br>
+      <div style="text-align: right; color: white; font-size: 25px;">:فئتها</div>
+      <br>
+      <label class="rad-label">
+        <input type="radio" class="rad-input" name="rad3">
+        <div class="rad-design"></div>
+        <div class="rad-text">مركز غوص.</div>
+      </label>
+    
+      <label class="rad-label">
+        <input type="radio" class="rad-input" name="rad3">
+        <div class="rad-design"></div>
+        <div class="rad-text">مركز أنشطة بحرية.</div>
+      </label>
+    
+      <label class="rad-label">
+        <input type="radio" class="rad-input" name="rad3">
+        <div class="rad-design"></div>
+        <div class="rad-text">يخت سفاري.</div>
+      </label>
+      <br>
+      <div class="user-box">
+        <input type="number" name="" required="" dir="auto" >
+        <label class ="minisnumb">رقم ترخيص و زارة السياحة والآثار</label>
+      </div>
+      <br><br>
+      <div class="user-box">
+        <input type="number" name="" required="" dir="auto" >
+        <label class ="roomnumb">رقم عضوية الغرفة</label>
+      </div>
+      </div>
+      <a href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Submit
+      </a>
+    </form>
+  </div>
+
+  <script>
+    function myfunction3(){
+    var x = document.getElementById("radio2");
+    var form =  document.getElementById("Hidden");
+
+    if(x.checked === true){
+      form.style.display = 'block';
+    }
+  }
+
+  function myfunction4(){
+    var y = document.getElementById("radio1");
+    var form =  document.getElementById("Hidden");
+
+    if(y.checked === true){
+      form.style.display = 'none';
+    }
+  }
+  </script>
+</body>
+</html>
