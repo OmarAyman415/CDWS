@@ -97,7 +97,7 @@ require('../../Config/Database.php');
                       <?php foreach($posts as $post) :?>
                         <tr>
                           <td>
-                            <form action="php/approve.php" method="post">
+                            <form action="php/appro_deny.php" method="post">
                               <input id=<?php echo $post['ssn'] ?> type="submit" class="btn btn-primary" name="submit" value="Approval">
                                 <input type="text" name="ssn" value="<?php echo $post['ssn'] ?>" style="display:none;">
                               <input id=<?php echo $post['ssn'] ?> type="submit" class="btn btn-primary" name="denial" value="Denial">
