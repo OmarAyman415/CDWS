@@ -33,8 +33,8 @@ require('../../Config/Database.php');
                     $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     
                     //see the data
-                    var_dump($posts);
-
+                    //var_dump($posts);
+                    echo $posts['name'];
                     //free the result
                     mysqli_free_result($result);
                     mysqli_close($conn);
@@ -94,7 +94,7 @@ require('../../Config/Database.php');
                 <tbody>
                   
                     
-                      <?php foreach($posts as $post=> $key) :?>
+                      <?php foreach($posts as $post) :?>
                         <tr>
                           <td>
                           <button onclick="" href="#" class="btn btn-primary">
@@ -115,7 +115,7 @@ require('../../Config/Database.php');
                           <td>$13</td>
                           <td>$14</td>
                           <td><?php 
-                          echo $key ; 
+                          echo $post['ssn'];
                           ?></td>
                           <th scope="row" class="scope">$post</th>
                           </tr>
