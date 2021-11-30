@@ -17,18 +17,19 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
 }
 
 
 .login-box {
     position: relative;
     width: 800px;
-    left: 950px;
-    top: 1000px;
     padding: 40px;
-    margin-top: 6%;
+    margin-top: 4%;
     margin-bottom: 5%;
-    transform: translate(-50%, -50%);
     background: rgba(0, 0, 0, .5);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
