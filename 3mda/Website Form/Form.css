@@ -308,6 +308,7 @@ header {
 }
 
 .checkmark {
+<<<<<<< HEAD
   display: flex;
   justify-content: unsafe right;
 }
@@ -349,3 +350,8 @@ header {
   font-family: cairo;
   src: url(Cairo-Regular.ttf);
 }
+=======
+    display: flex;
+    justify-content: unsafe right;
+}
+>>>>>>> 19e5c32a2f62609d84bea68f7ecb6da4931eab96
