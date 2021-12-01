@@ -1,10 +1,17 @@
-var radios = document.getElementsByName("rad2");
-var form =  document.getElementById("Hidden");
+function myfunction3(){
+  var x = document.getElementById("radio2");
+  var form =  document.getElementById("Hidden");
 
-document.getElementById("Hidden").style.display = 'block';
+  if(x.checked === true){
+    form.style.display = 'block';
+  }
+}
 
-for(var i = 0; i < radios.length; i++) {
-    radios[i].onclick = function() {
-      var val = this.id;
-    }
+function myfunction4(){
+  var y = document.getElementById("radio1");
+  var form =  document.getElementById("Hidden");
+
+  if(y.checked === true){
+    form.style.display = 'none';
+  }
 }
