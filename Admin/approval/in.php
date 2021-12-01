@@ -105,11 +105,11 @@ require('../../Config/Database.php');
                             <!-- form of Approval and Denial  buttons  -->
                             <form action="php/appro_deny.php" method="post">
                               <!-- Approval buttton -->
-                              <input id=<?php echo $post['ssn'] ?> type="submit" class="btn btn-primary" name="submit" value="Approval">
+                              <input id=<?php echo $post['ssn'] ?> type="submit" class="btn btn-primary approval" name="submit" value="Approval">
                                 <!-- input field that stores SSN of the record to push it to appro_deny.php -->
                               <input type="text" name="ssn" value="<?php echo $post['ssn'] ?>" style="display:none;">
                               <!-- Denial Button -->
-                              <input id=<?php echo $post['ssn'] ?> type="submit" class="btn btn-primary" name="denial" value="Denial">
+                              <input id=<?php echo $post['ssn'] ?> type="submit" class="btn btn-primary denial" name="denial" value="Denial">
                             </form>
                           </td>
 
