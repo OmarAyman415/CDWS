@@ -5,7 +5,6 @@ function myfunction3() {
   if (x.checked === true) {
     form.style.display = "block";
     document.getElementById("idnumber").setAttribute("required", "");
-
     document.getElementById("phonenumber").setAttribute("required", "");
     document.getElementById("roomnumber").setAttribute("required", "");
     document.getElementById("emailaddress").setAttribute("required", "");
@@ -18,7 +17,6 @@ function myfunction4() {
   if (y.checked === true) {
     form.style.display = "none";
     document.getElementById("idnumber").removeAttribute("required");
-
     document.getElementById("phonenumber").removeAttribute("required");
     document.getElementById("roomnumber").removeAttribute("required");
     document.getElementById("emailaddress").removeAttribute("required");
