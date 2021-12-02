@@ -24,25 +24,31 @@
           نموذج إخطار بالمُمثل القانوني للمنشأة المُعتمد لدى الوزارة والغرفة
         </h2>
         <!-- Form -->
-        <form action="php/test.php">
+        <form action="php/submitData.php" method="post">
           <!-- Name -->
           <div class="user-box">
-            <input type="text" name="" required="" dir="auto" />
+            <input type="text" required="" dir="auto" name="pName" />
             <label class="name">الأسم</label>
           </div>
           <!-- National ID -->
           <div class="user-box">
-            <input type="number" name="" required />
+            <input type="number" required name="pSSN" />
             <label class="idnumb">الرقم القومي</label>
           </div>
           <!-- Phone Number -->
           <div class="user-box">
-            <input type="number" name="" required />
+            <input type="number" name="pPhone" required />
             <label class="numb">رقم الهاتف</label>
           </div>
           <!-- Email -->
           <div class="user-box">
-            <input class="email" type="email" name="" required dir="auto" />
+            <input
+              class="email"
+              type="email"
+              name="pEmail"
+              required
+              dir="auto"
+            />
             <label>البريد الالكتروني</label>
           </div>
 
@@ -50,7 +56,7 @@
           <div>
             <!-- Radio Button 1 -->
             <label class="rad-label">
-              <input type="radio" class="rad-input" name="rad" />
+              <input type="radio" class="rad-input" value="1" name="rad" />
               <div class="rad-design"></div>
               <div class="rad-text">
                 رئيس مجلس الإدارة أو العُضو المُنتدب في شركات الأموال بحسب
@@ -59,7 +65,7 @@
             </label>
             <!-- Radio Button 2 -->
             <label class="rad-label">
-              <input type="radio" class="rad-input" name="rad" />
+              <input type="radio" class="rad-input" value="2" name="rad" />
               <div class="rad-design"></div>
               <div class="rad-text">
                 الشريك المُتضامن المنوط به الإدارة في شركات الأشخاص.
@@ -67,7 +73,7 @@
             </label>
             <!-- Radio Button 3 -->
             <label class="rad-label">
-              <input type="radio" class="rad-input" name="rad" />
+              <input type="radio" class="rad-input" value="3" name="rad" />
               <div class="rad-design"></div>
               <div class="rad-text">
                 عُضو مجلس الإدارة من مالكي لأسهُم في شركات المُساهمة.
@@ -75,7 +81,7 @@
             </label>
             <!-- Radio Button 4 -->
             <label class="rad-label">
-              <input type="radio" class="rad-input" name="rad" />
+              <input type="radio" class="rad-input" value="4" name="rad" />
               <div class="rad-design"></div>
               <div class="rad-text">
                 من أصحاب الحصص بالشركات ذات المسئولية المحدودة.
@@ -83,7 +89,7 @@
             </label>
             <!-- Radio Button 5 -->
             <label class="rad-label">
-              <input type="radio" class="rad-input" name="rad" />
+              <input type="radio" class="rad-input" value="5" name="rad" />
               <div class="rad-design"></div>
               <div class="rad-text">مالك المُنشأة الفردية.</div>
             </label>
@@ -100,6 +106,7 @@
                 <input
                   type="radio"
                   class="rad-input"
+                  value="0"
                   name="rad2"
                   id="radio1"
                   onclick="myfunction4()"
@@ -112,6 +119,7 @@
                 <input
                   type="radio"
                   class="rad-input"
+                  value="1"
                   name="rad2"
                   id="radio2"
                   onclick="myfunction3()"
@@ -126,37 +134,41 @@
               <!--hidden section-->
               <div class="Hidden" id="Hidden" style="display: none">
                 <div class="user-box">
+                  <!-- Authorized National ID -->
                   <input
                     class="secondary"
                     type="number"
-                    name=""
+                    name="authSSN"
                     id="idnumber"
                   />
                   <label class="numb2">الرقم القومي</label>
                 </div>
                 <div class="user-box">
+                  <!-- Authorized Room ID -->
                   <input
                     class="secondary"
                     type="number"
-                    name=""
+                    name="authIdNumber"
                     id="roomnumber"
                   />
                   <label class="numb">رقم الغرفة</label>
                 </div>
                 <div class="user-box">
+                  <!-- Authorized Phone Number -->
                   <input
                     class="secondary"
                     type="number"
-                    name=""
+                    name="authPhone"
                     id="phonenumber"
                   />
                   <label class="numb">رقم الهاتف</label>
                 </div>
                 <div class="user-box">
+                  <!-- Authorized Email -->
                   <input
                     class="email secondary"
                     type="email"
-                    name=""
+                    name="authEmail"
                     dir="auto"
                     id="emailaddress"
                   />
@@ -167,18 +179,20 @@
             <br />
             <hr />
             <br />
-            <!--place section-->
+            <!--Foundation section-->
             <div style="text-align: right; color: white; font-size: 25px">
               : لحضور الجمعية العمومية عن المنشأة/ المنشآت التالية
             </div>
             <br /><br /><br /><br />
             <div class="user-box">
-              <input type="text" name="" required dir="auto" />
+              <!-- Foundation Name -->
+              <input type="text" name="foundName" required dir="auto" />
               <label class="nameof">أسم المنشأة</label>
             </div>
             <br /><br />
             <div class="user-box">
-              <input type="text" name="" required dir="auto" />
+              <!-- Foundation place -->
+              <input type="text" name="foundPlace" required dir="auto" />
               <label class="place">المقر</label>
             </div>
             <br /><br /><br />
@@ -187,32 +201,39 @@
               :فئتها
             </div>
             <br />
+            <!-- category section -->
             <label class="rad-label">
-              <input type="radio" class="rad-input" name="rad3" />
+              <input type="radio" class="rad-input" value="1" name="rad3" />
               <div class="rad-design"></div>
               <div class="rad-text">مركز غوص.</div>
             </label>
 
             <label class="rad-label">
-              <input type="radio" class="rad-input" name="rad3" />
+              <input type="radio" class="rad-input" value="2" name="rad3" />
               <div class="rad-design"></div>
               <div class="rad-text">مركز أنشطة بحرية.</div>
             </label>
 
             <label class="rad-label">
-              <input type="radio" class="rad-input" name="rad3" />
+              <input type="radio" class="rad-input" value="3" name="rad3" />
               <div class="rad-design"></div>
               <div class="rad-text">يخت سفاري.</div>
             </label>
             <br />
             <!--last text section-->
             <div class="user-box">
-              <input type="number" name="" required dir="auto" />
-              <label class="minisnumb">رقم ترخيص و زارة السياحة والآثار</label>
+              <!-- licence ID Number -->
+              <input type="number" name="foundLic" required dir="auto" />
+              <label class="minisnumb">رقم ترخيص وزارة السياحة والآثار</label>
             </div>
             <br /><br />
             <div class="user-box">
-              <input type="number" name="" required dir="auto" />
+              <input
+                type="number"
+                name="foundIdRoomNumber"
+                required
+                dir="auto"
+              />
               <label class="roomnumb">رقم عضوية الغرفة</label>
             </div>
           </div>
@@ -237,7 +258,8 @@
               </div>
               <div class="rad-text">برجاء رفع صورة البطاقة</div>
             </div>
-            <br><br><br>
+            <br /><br /><br />
+            <!--upload personal photo-->
             <div class="upload">
               <div class="upload-btn spin" style="margin-top: -6px">
                 <span></span>
@@ -255,13 +277,13 @@
               </div>
               <div class="rad-text">برجاء رفع الصورة الشخصية</div>
             </div>
-            <br><br><br>
+            <br /><br /><br />
             <!-- conditions-->
             <div class="checkmark">
               <h1 class="rad-text" style="direction: rtl; font-weight: 1000">
                 وأقر بالأتي:
               </h1>
-              <input type="checkbox" class="checkbox mt-2"/>
+              <input type="checkbox" required class="checkbox mt-2" />
             </div>
             <div class="rad-text" style="direction: rtl">
               <br /><br />
