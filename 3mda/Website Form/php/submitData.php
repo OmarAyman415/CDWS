@@ -11,8 +11,8 @@ require('../../../Config/Database.php');
 			$pVisitor = $_POST['authSSN'];
 		}
 		$query = "INSERT INTO persons  VALUES({$personSSN},'{$personName}',{$personPhone},'{$personEmail}',{$adjID},{$pVisitor},DEFAULT(APPROVEN));";
-	
-		$result=mysqli_query($conn,$query);
+		
+		mysqli_query($conn,$query);
 		
 		$authSSN = NULL;
 		$authPhone = NULL;
@@ -24,16 +24,18 @@ require('../../../Config/Database.php');
 			$authPhone = $_POST['authPhone'];
 			$authIdNumber = $_POST['authIdNumber'];
 			$authEmail = $_POST['authEmail'];
-			$query = "INSERT INTO authorize VALUES(1 , '01066445323' , 'OMARESSAMDESOUKY@GMAI.COM' , 201900520 );"
+			$query = "INSERT INTO authorize VALUES({$authSSN}, '{$authPhone}' , '{$authEmail}' , {$authIdNumber} );";
+			mysqli_query($conn,$query);
+			
 		}
 		$foundationName =  $_POST['foundName'];
 		$foundationPlace = $_POST['foundPlace'];
 		$foundationId = $_POST['rad3'];
 		$foundationLic = $_POST['foundLic'];
 		$foundationIdRoomNumber = $_POST['foundIdRoomNumber'];
-
-
-		
+		$query = "INSERT INTO foundation(ssnPerson ,name , place ,foundationId , licenceId ,idNumberRoom) VALUES({$personSSN} , '{$foundationName}' , '{$foundationPlace}' , {$foundationId} , {$foundationLic} , {$foundationIdRoomNumber});";
+		mysqli_query($conn,$query);
+		header('../Submit Done/index.html');
 		// $password=$_POST['password'];
 		// $query= 'select * from login where EMAIL="'. $username .'" and PASSWORD ="'.$password .'"';
 		// $result=mysqli_query($conn,$query);
