@@ -6,12 +6,12 @@ require('../../../Config/Database.php');
 		$personPhone = $_POST['pPhone'];
 		$personEmail = $_POST['pEmail'];
 		$adjID = $_POST['rad'];
-		$pVisitor = NULL;
+		$pVisitor = 'DEFAULT(SSNVISITOR)';
 		if ($_POST['rad2'] == "1") {
 			$pVisitor = $_POST['authSSN'];
 		}
-		$query = "
-		INSERT INTO persons  VALUES({$personSSN},{$personName},{$personPhone},{$personEmail},{$adjID},{$pVisitor},DEFAULT(APPROVEN))";
+		$query = "INSERT INTO persons  VALUES({$personSSN},'{$personName}',{$personPhone},'{$personEmail}',{$adjID},{$pVisitor},DEFAULT(APPROVEN));";
+	
 		$result=mysqli_query($conn,$query);
 		
 		$authSSN = NULL;
@@ -24,6 +24,7 @@ require('../../../Config/Database.php');
 			$authPhone = $_POST['authPhone'];
 			$authIdNumber = $_POST['authIdNumber'];
 			$authEmail = $_POST['authEmail'];
+			$query = "INSERT INTO authorize VALUES(1 , '01066445323' , 'OMARESSAMDESOUKY@GMAI.COM' , 201900520 );"
 		}
 		$foundationName =  $_POST['foundName'];
 		$foundationPlace = $_POST['foundPlace'];
