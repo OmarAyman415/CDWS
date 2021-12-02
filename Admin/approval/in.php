@@ -100,6 +100,7 @@ require('../../Config/Database.php');
                   
                     
                       <?php foreach($posts as $post) :?>
+                        <?php if($post['approven'] != "0"){ ?>
                         <tr>
                           <td>
                             <!-- form of Approval and Denial  buttons  -->
@@ -194,6 +195,7 @@ require('../../Config/Database.php');
                           echo $post['ssn'];
                           ?></th>
                           </tr>
+                          <?php } ?>
                        <?php endforeach; ?> <!-- End OF the Foreach loop -->
                 </tbody>
               </table>
