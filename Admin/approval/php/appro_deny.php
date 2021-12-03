@@ -19,5 +19,5 @@ $query = 'UPDATE persons SET approven = '. $approve .' WHERE ssn = ' . $username
 $result=mysqli_query($conn,$query);
 
 //return to Approval Page
-header('Location:../in.php');
+header('Location:../ApprovalPage.php');
 ?>
