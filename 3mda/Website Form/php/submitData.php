@@ -9,9 +9,7 @@ require('../../../Config/Database.php');
 		$pVisitor = 'DEFAULT(SSNVISITOR)';
 		if ($_POST['rad2'] == "1") {
 			$pVisitor = $_POST['authSSN'];
-		}
-		var_dump($_FILES);
-		
+		}	
 		$p1 = $_FILES['NIdF']['tmp_name'];
 		$p2 = $_FILES['NIdB']['tmp_name'];
 		$p3 = $_FILES['PI']['tmp_name'];
