@@ -10,10 +10,11 @@ require('../../../Config/Database.php');
       href="https://fonts.googleapis.com/css?family=Poppins"
       rel="stylesheet"
     />
-    <link href="css/main.css" rel="stylesheet" />
+    
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/extras.css">
+    <link href="css/main.css" rel="stylesheet" />
   </head>
   <body>
     <div class="s130">
