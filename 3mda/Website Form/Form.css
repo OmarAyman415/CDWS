@@ -346,11 +346,3 @@ input[type="file"]::file-selector-button {
   padding-left: 15px;
 }
 
-.cairo {
-  font-family: cairo;
-}
-
-@font-face {
-  font-family: cairo;
-  src: url(Cairo-Regular.ttf);
-}

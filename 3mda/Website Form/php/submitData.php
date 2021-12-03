@@ -35,18 +35,6 @@ require('../../../Config/Database.php');
 		$foundationIdRoomNumber = $_POST['foundIdRoomNumber'];
 		$query = "INSERT INTO foundation(ssnPerson ,name , place ,foundationId , licenceId ,idNumberRoom) VALUES({$personSSN} , '{$foundationName}' , '{$foundationPlace}' , {$foundationId} , {$foundationLic} , {$foundationIdRoomNumber});";
 		mysqli_query($conn,$query);
-		header('../Submit Done/index.html');
-		// $password=$_POST['password'];
-		// $query= 'select * from login where EMAIL="'. $username .'" and PASSWORD ="'.$password .'"';
-		// $result=mysqli_query($conn,$query);
-		// $count = mysqli_num_rows($result);
-		// if($count)
-		// {
-		// 	header('Location:../../Admin/approval/in.php');
-		// }
-		// else
-		// {
-		// 	echo"login not successful";
-		// }
+		header('Location:../Submit Done/index.html');
 	}
 ?>

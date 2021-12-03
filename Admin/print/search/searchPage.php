@@ -74,8 +74,10 @@ require('../../../Config/Database.php');
                   </tr>
                 </thead>
                 <?php
+                // Get the input from the search bar
                 $searchSSN = $_POST['search'];
                 $query = "";
+                //if the search is empty display all records from Database
                 if ($searchSSN == "") {
                     $query = 'SELECT
                   p.ssn,
@@ -101,6 +103,7 @@ require('../../../Config/Database.php');
                   LEFT JOIN
                   authorize auth ON auth.ssn = p.ssnVisitor';
                 }
+                // else display the searched ID or SSN
                 else{
                   $query = 'SELECT
                   p.ssn,
@@ -144,13 +147,11 @@ require('../../../Config/Database.php');
                         <tr>
                           <td>
                             <!-- form of Approval and Denial  buttons  -->
-                            <form action="php/appro_deny.php" method="post">
+                            <form  method="post">
                               <!-- Approval buttton -->
-                              <input id=<?php echo $post['ssn'] ?> type="submit" class="btn btn-primary approval" name="submit" value="Approval">
+                              <input id=<?php echo $post['ssn'] ?> type="submit" class="btn btn-primary approval" name="submit" value="Print">
                                 <!-- input field that stores SSN of the record to push it to appro_deny.php -->
                               <input type="text" name="ssn" value="<?php echo $post['ssn'] ?>" style="display:none;">
-                              <!-- Denial Button -->
-                              <input id=<?php echo $post['ssn'] ?> type="submit" class="btn btn-primary denial" name="denial" value="Denial">
                             </form>
                           </td>
 
