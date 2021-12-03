@@ -97,8 +97,6 @@ require('../../Config/Database.php');
 
                 <!-- Table body -->
                 <tbody>
-                  
-                    
                       <?php foreach($posts as $post) :?>
                         <?php if($post['approven'] != "0"){ ?>
                         <tr>
@@ -107,7 +105,7 @@ require('../../Config/Database.php');
                             <form action="php/appro_deny.php" method="post">
                               <!-- Approval buttton -->
                               <input id=<?php echo $post['ssn'] ?> type="submit" class="btn btn-primary approval" name="submit" value="Approval">
-                                <!-- input field that stores SSN of the record to push it to appro_deny.php -->
+                              <!-- input field that stores SSN of the record to push it to appro_deny.php -->
                               <input type="text" name="ssn" value="<?php echo $post['ssn'] ?>" style="display:none;">
                               <!-- Denial Button -->
                               <input id=<?php echo $post['ssn'] ?> type="submit" class="btn btn-primary denial" name="denial" value="Denial">

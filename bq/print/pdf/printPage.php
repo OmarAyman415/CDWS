@@ -38,7 +38,12 @@ if (isset($_POST['submit'])) {
     //Fetch data
         $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
         $image = $posts[0]['NIdFrontImage'];
-        
+
+        $personName = $posts[0]['name'];
+        $personSSN = $posts[0]['ssn'];
+        $foundationName = $posts[0]['foundation_name'];
+        $foundationId = $posts[0]['foundationId'];
+        $foundationPlace = $posts[0]['place'];
 }
 ?>
 <!DOCTYPE html>
@@ -54,6 +59,7 @@ if (isset($_POST['submit'])) {
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="pdf.css" />
+    <link rel="stylesheet" href="css/style.css">
     <script src="index.js"></script>
     <script src="js/html2pdf.bundle.js"></script>
   </head>
@@ -64,19 +70,22 @@ if (isset($_POST['submit'])) {
         <div class="col-md-12 d-flex justify-content-center text-right mb-3">
           <button class="btn btn-primary" id="download">download pdf</button>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-12" id="test">
           <div class="card" id="invoice">
-            <div class="card-header bg-transparent header-elements-inline">
+            <div  class="card-header bg-transparent header-elements-inline">
               <div class="row">
-                <div class="col-md-6 offset-2">
-                  <h6 class="card-title text-primary">ID :<?php echo $posts[0]['ssn']; ?></h6>
-                </div>
-                <div class="col-md-6 offset-4">
-                  <img style="width: 200px;" src="../../../3mda/Website Form/images/<?php echo $image; ?>"  />
-                </div>
-                <div class="col-md-6 offset-4">
-                  <h1>Amr Mostafa</h1>
-                </div>
+                
+                  <h4 class=" personSSN"><?php echo $posts[0]['ssn']; ?></h4>
+                  <h5 class="personName"><?php echo $personName ?></h5>
+                  <h5 class="foundName"><?php echo $foundationName ?></h5>
+                  <h5 class="foundId"><?php echo $foundationId ?></h5>
+                  <h5 class="foundplace"><?php echo $foundationPlace ?></h5>
+              
+                  <img class="prof" style="width: 160px;" src="../../../3mda/Website Form/images/<?php echo $image; ?>"  />
+              
+                
+                  
+               
               </div>
             </div>
           </div>

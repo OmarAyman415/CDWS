@@ -1,3 +1,24 @@
-img#prof {
-  width: 200px;
+.card {
+  background: url(../INTERNATIONAL-1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 1200px;
+  height: 850px;
+}
+
+.card-header {
+  width: 1200px;
+  height: 850px;
+}
+
+img.prof {
+  position: absolute;
+  margin-top: 20%;
+  margin-left: 50%;
+}
+
+.personSSN {
+  position: absolute;
+  margin-left: 70%;
+  margin-top: 21%;
 }
