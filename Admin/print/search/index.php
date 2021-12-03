@@ -75,31 +75,59 @@ require('../../../Config/Database.php');
                 </thead>
                 <?php
                 $searchSSN = $_POST['search'];
-                $query = 'SELECT
-                p.ssn,
-                p.name, 
-                f.name as foundation_name,
-                f.foundationId,
-                f.licenceId,
-                f.idNumberRoom,
-                f.place,
-                a.state,
-                auth.phone as authorize_phone,
-                auth.idNumber as idMember,
-                p.phone,
-                p.email,
-                p.adjId,
-                p.ssnVisitor,
-                p.approven
-                FROM persons p
-                left JOIN
-                foundation f ON p.ssn = f.ssnPerson
-                LEFT JOIN 
-                adj_id a ON a.id = p.adjId
-                LEFT JOIN
-                authorize auth ON auth.ssn = p.ssnVisitor
+                $query = "";
+                if ($searchSSN == "") {
+                    $query = 'SELECT
+                  p.ssn,
+                  p.name, 
+                  f.name as foundation_name,
+                  f.foundationId,
+                  f.licenceId,
+                  f.idNumberRoom,
+                  f.place,
+                  a.state,
+                  auth.phone as authorize_phone,
+                  auth.idNumber as idMember,
+                  p.phone,
+                  p.email,
+                  p.adjId,
+                  p.ssnVisitor,
+                  p.approven
+                  FROM persons p
+                  left JOIN
+                  foundation f ON p.ssn = f.ssnPerson
+                  LEFT JOIN 
+                  adj_id a ON a.id = p.adjId
+                  LEFT JOIN
+                  authorize auth ON auth.ssn = p.ssnVisitor';
+                }
+                else{
+                  $query = 'SELECT
+                  p.ssn,
+                  p.name,
+                  f.name as foundation_name,
+                  f.foundationId,
+                  f.licenceId,
+                  f.idNumberRoom,
+                  f.place,
+                  a.state,
+                  auth.phone as authorize_phone,
+                  auth.idNumber as idMember,
+                  p.phone,
+                  p.email,
+                  p.adjId,
+                  p.ssnVisitor,
+                  p.approven
+                  FROM persons p
+                  left JOIN
+                  foundation f ON p.ssn = f.ssnPerson
+                  LEFT JOIN 
+                  adj_id a ON a.id = p.adjId
+                  LEFT JOIN
+                  authorize auth ON auth.ssn = p.ssnVisitor
 
-                WHERE p.ssn = '. $searchSSN .' ;';
+                  WHERE p.ssn = '. $searchSSN .' ;';
+                }
                 
                 //Get results
                  $result = mysqli_query($conn, $query);
