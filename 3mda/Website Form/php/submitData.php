@@ -10,16 +10,21 @@ require('../../../Config/Database.php');
 		if ($_POST['rad2'] == "1") {
 			$pVisitor = $_POST['authSSN'];
 		}	
-
-		print_r($_FILES);
+		//Name file with random number so that similar images don't get replaced
+		$NIdFName = rand(1000,10000)."-".$_FILES['NIdF']['name'];
+		$NIdBName = rand(1000,10000)."-".$_FILES['NIdB']['name'];
+		$PIName = rand(1000,10000)."-".$_FILES['PI']['name'];
+		//temporary file name to store file
 		$p1 = $_FILES['NIdF']['tmp_name'];
 		$p2 = $_FILES['NIdB']['tmp_name'];
 		$p3 = $_FILES['PI']['tmp_name'];
+		$uploads_dir = '../images';
+		//Move uploaded files to specific location
+		move_uploaded_file($p1,$uploads_dir.'/'.$NIdFName);
+		move_uploaded_file($p2,$uploads_dir.'/'.$NIdBName);
+		move_uploaded_file($p3,$uploads_dir.'/'.$PIName);
 
-		$personNationalIdFront = addslashes(file_get_contents($p1));
-		$personNationalIdBack = addslashes(file_get_contents($p2));
-		$personPersonalImage = addslashes(file_get_contents($p3));
-		$query = "INSERT INTO persons  VALUES({$personSSN},'{$personName}',{$personPhone},'{$personEmail}',{$adjID},{$pVisitor},DEFAULT(APPROVEN),{$personNationalIdFront},{$personNationalIdBack},{$personPersonalImage});";
+		$query = "INSERT INTO persons  VALUES({$personSSN},'{$personName}',{$personPhone},'{$personEmail}',{$adjID},{$pVisitor},DEFAULT(APPROVEN),'{$NIdFName}','{$NIdBName}','{$PIName}');";
 		
 		mysqli_query($conn,$query);
 		
@@ -44,6 +49,6 @@ require('../../../Config/Database.php');
 		$foundationIdRoomNumber = $_POST['foundIdRoomNumber'];
 		$query = "INSERT INTO foundation(ssnPerson ,name , place ,foundationId , licenceId ,idNumberRoom) VALUES({$personSSN} , '{$foundationName}' , '{$foundationPlace}' , {$foundationId} , {$foundationLic} , {$foundationIdRoomNumber});";
 		mysqli_query($conn,$query);
-		//header('Location:../Submit Done/SuccessSubmit.html');
+		header('Location:../Submit Done/SuccessSubmit.html');
 	}
 ?>

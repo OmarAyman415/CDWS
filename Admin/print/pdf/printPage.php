@@ -19,7 +19,10 @@ if (isset($_POST['submit'])) {
                   p.email,
                   p.adjId,
                   p.ssnVisitor,
-                  p.approven
+                  p.approven,
+                  p.NIdFrontImage,
+                  p.NIdBackImage,
+                  p.PImage
                   FROM persons p
                   left JOIN
                   foundation f ON p.ssn = f.ssnPerson
@@ -68,7 +71,7 @@ if (isset($_POST['submit'])) {
                   <h6 class="card-title text-primary">ID :<?php echo $posts[0]['ssn']; ?></h6>
                 </div>
                 <div class="col-md-6 offset-4">
-                  <img src="pro6.jpeg"  />
+                  <img src="../../../3mda/Website Form/images/'$posts[0]['NIdFrontImage']'"  />
                 </div>
                 <div class="col-md-6 offset-4">
                   <h1>Amr Mostafa</h1>

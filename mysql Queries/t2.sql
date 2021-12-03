@@ -45,9 +45,9 @@ CREATE TABLE persons( -- THAT TABLE STANDS FOR THE OWNERS
 	PRIMARY KEY(ssn),
 	FOREIGN KEY (adjId) REFERENCES adj_id(id),
 	FOREIGN KEY (ssnVisitor) REFERENCES authorize(ssn),
-    NIdFrontImage longblob DEFAULT NULL,
-    NIdBackImage longblob DEFAULT NULL,
-    PImage longblob DEFAULT NULL
+    NIdFrontImage VARCHAR(255) ,
+    NIdBackImage VARCHAR(255),
+    PImage VARCHAR(255)
 );
 INSERT INTO persons(ssn,name,phone,email,adjId,ssnVisitor,approven) VALUES(1, "AHMED" , "045454545" , "ahmed@gmail.com" , 1 , DEFAULT(SSNVISITOR) ,  DEFAULT(APPROVEN));
 INSERT INTO persons(ssn,name,phone,email,adjId,ssnVisitor,approven) VALUES(2, "OMAR" , "69845345" , "omar34@gmail.com" , 2 , 1 , false);
