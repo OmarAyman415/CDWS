@@ -47,8 +47,10 @@ require('../../../Config/Database.php');
             </button>
           </div>
         </div>
-        <div class="result-form">
-        <div class="table-wrap">
+        
+      </form>
+    </div>
+    <div class="container">
               <table class="table">
                 <thead class="thead-primary">
                   <!-- Columns Heads or The Titles -->
@@ -109,7 +111,7 @@ require('../../../Config/Database.php');
                 <!-- Table body -->
                 <tbody>
                       <?php foreach($posts as $post) :?>
-                        <?php echo $post['ssn']; if($post['approven'] != "0"){ ?>
+                        <?php if($post['approven'] != "0"){ ?>
                         <tr>
                           <td>
                             <!-- form of Approval and Denial  buttons  -->
@@ -208,10 +210,8 @@ require('../../../Config/Database.php');
                        <?php endforeach; ?> <!-- End OF the Foreach loop -->
                 </tbody>
               </table>
-            </div>
+            
         </div>
-      </form>
-    </div>
 
     <!-- Scripts -->
     <script src="js/jquery.min.js"></script>
