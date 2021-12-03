@@ -147,7 +147,7 @@ require('../../../Config/Database.php');
                         <tr>
                           <td>
                             <!-- form of Approval and Denial  buttons  -->
-                            <form  method="post">
+                            <form action="../pdf/printPage.php"  method="post">
                               <!-- Approval buttton -->
                               <input id=<?php echo $post['ssn'] ?> type="submit" class="btn btn-primary approval" name="submit" value="Print">
                                 <!-- input field that stores SSN of the record to push it to appro_deny.php -->
