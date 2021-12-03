@@ -51,7 +51,7 @@ require('../../../Config/Database.php');
         
       </form>
     </div>
-    <div class="container">
+    <div class="Table-wrap">
               <table class="table">
                 <thead class="thead-primary">
                   <!-- Columns Heads or The Titles -->
@@ -112,7 +112,7 @@ require('../../../Config/Database.php');
                 <!-- Table body -->
                 <tbody>
                       <?php foreach($posts as $post) :?>
-                        <?php if($post['approven'] != "0"){ ?>
+                        <?php if($post['approven'] == "1" ){ ?>
                         <tr>
                           <td>
                             <!-- form of Approval and Denial  buttons  -->
