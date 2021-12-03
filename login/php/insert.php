@@ -8,7 +8,7 @@
 		$count = mysqli_num_rows($result);
 		if($count)
 		{
-			header('Location:../../Admin/approval/in.php');
+			header('Location:../../Admin/approval/ApprovalPage.php');
 		}
 		else
 		{

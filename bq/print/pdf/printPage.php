@@ -37,6 +37,7 @@ if (isset($_POST['submit'])) {
               
     //Fetch data
         $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        $image = $posts[0]['NIdFrontImage'];
         
 }
 ?>
@@ -71,7 +72,7 @@ if (isset($_POST['submit'])) {
                   <h6 class="card-title text-primary">ID :<?php echo $posts[0]['ssn']; ?></h6>
                 </div>
                 <div class="col-md-6 offset-4">
-                  <img src="../../../3mda/Website Form/images/'$posts[0]['NIdFrontImage']'"  />
+                  <img style="width: 200px;" src="../../../3mda/Website Form/images/<?php echo $image; ?>"  />
                 </div>
                 <div class="col-md-6 offset-4">
                   <h1>Amr Mostafa</h1>
