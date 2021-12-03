@@ -22,7 +22,7 @@
 
     // }
 
-    $conn = mysqli_connect('localhost','root','','cdws');
+    $conn = mysqli_connect('localhost','root','','cdws2');
     if(mysqli_connect_errno()){
         //connection failed
         echo 'failed to connect to mysql' . mysqli_connect_errno();

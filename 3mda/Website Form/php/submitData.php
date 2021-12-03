@@ -10,7 +10,16 @@ require('../../../Config/Database.php');
 		if ($_POST['rad2'] == "1") {
 			$pVisitor = $_POST['authSSN'];
 		}
-		$query = "INSERT INTO persons  VALUES({$personSSN},'{$personName}',{$personPhone},'{$personEmail}',{$adjID},{$pVisitor},DEFAULT(APPROVEN));";
+		var_dump($_FILES);
+		
+		$p1 = $_FILES['NIdF']['tmp_name'];
+		$p2 = $_FILES['NIdB']['tmp_name'];
+		$p3 = $_FILES['PI']['tmp_name'];
+
+		$personNationalIdFront = addslashes(file_get_contents($p1));
+		$personNationalIdBack = addslashes(file_get_contents($p2));
+		$personPersonalImage = addslashes(file_get_contents($p3));
+		$query = "INSERT INTO persons  VALUES({$personSSN},'{$personName}',{$personPhone},'{$personEmail}',{$adjID},{$pVisitor},DEFAULT(APPROVEN),{$personNationalIdFront},{$personNationalIdBack},{$personPersonalImage});";
 		
 		mysqli_query($conn,$query);
 		
@@ -35,6 +44,6 @@ require('../../../Config/Database.php');
 		$foundationIdRoomNumber = $_POST['foundIdRoomNumber'];
 		$query = "INSERT INTO foundation(ssnPerson ,name , place ,foundationId , licenceId ,idNumberRoom) VALUES({$personSSN} , '{$foundationName}' , '{$foundationPlace}' , {$foundationId} , {$foundationLic} , {$foundationIdRoomNumber});";
 		mysqli_query($conn,$query);
-		header('Location:../Submit Done/index.html');
+		//header('Location:../Submit Done/SuccessSubmit.html');
 	}
 ?>

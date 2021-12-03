@@ -68,7 +68,7 @@ if (isset($_POST['submit'])) {
                   <h6 class="card-title text-primary">ID :<?php echo $posts[0]['ssn']; ?></h6>
                 </div>
                 <div class="col-md-6 offset-4">
-                  <img src="pro6.jpg" width="200px" height="200px" />
+                  <img src="pro6.jpeg"  />
                 </div>
                 <div class="col-md-6 offset-4">
                   <h1>Amr Mostafa</h1>
