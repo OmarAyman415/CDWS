@@ -10,6 +10,8 @@ require('../../../Config/Database.php');
 		if ($_POST['rad2'] == "1") {
 			$pVisitor = $_POST['authSSN'];
 		}	
+
+		print_r($_FILES);
 		$p1 = $_FILES['NIdF']['tmp_name'];
 		$p2 = $_FILES['NIdB']['tmp_name'];
 		$p3 = $_FILES['PI']['tmp_name'];
