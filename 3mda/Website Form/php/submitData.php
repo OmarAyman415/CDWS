@@ -48,7 +48,7 @@ require('../../../Config/Database.php');
 		$foundationId = $_POST['rad3'];
 		$foundationLic = $_POST['foundLic'];
 		$foundationIdRoomNumber = $_POST['foundIdRoomNumber'];
-		$query = "INSERT INTO foundation(ssnPerson ,name , place ,foundationId , licenceId ,idNumberRoom) VALUES({$personSSN} , '{$foundationName}' , '{$foundationPlace}' , {$foundationId} , {$foundationLic} , {$foundationIdRoomNumber});";
+		$query = "INSERT INTO foundation(ssnPerson ,name , place ,foundationId , licenceId ,idNumberRoom) VALUES('{$personSSN}' , '{$foundationName}' , '{$foundationPlace}' , {$foundationId} , {$foundationLic} , {$foundationIdRoomNumber});";
 		mysqli_query($conn,$query);
 		header('Location:../Submit Done/SuccessSubmit.html');
 	}

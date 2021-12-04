@@ -1,5 +1,8 @@
 <?php
+//get Database Connection
 require('../../../Config/Database.php');
+
+
 ?>
 <html>
   <head>
@@ -39,6 +42,7 @@ require('../../../Config/Database.php');
               id="search"
               name="search"
               type="text"
+              value=" "
               placeholder="What are you looking for?"
             />
           </div>
@@ -75,7 +79,10 @@ require('../../../Config/Database.php');
                 </thead>
                 <?php
                 // Get the input from the search bar
-                $searchSSN = $_POST['search'];
+                $searchSSN = "";
+                if (isset($_POST['submit'])) {
+                  $searchSSN = $_POST['search'];
+                }
                 $query = "";
                 //if the search is empty display all records from Database
                 if ($searchSSN == "") {

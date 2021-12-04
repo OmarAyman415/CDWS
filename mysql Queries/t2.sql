@@ -35,7 +35,7 @@ INSERT INTO category VALUES(3 , "يخت سفاري");
 
 
 CREATE TABLE persons( -- THAT TABLE STANDS FOR THE OWNERS
-	ssn int,
+	ssn VARCHAR(255),
     name VARCHAR(255),
     phone VARCHAR(255),
 	email VARCHAR(255),
@@ -49,17 +49,17 @@ CREATE TABLE persons( -- THAT TABLE STANDS FOR THE OWNERS
     NIdBackImage VARCHAR(255),
     PImage VARCHAR(255)
 );
-INSERT INTO persons(ssn,name,phone,email,adjId,ssnVisitor,approven) VALUES(1, "AHMED" , "045454545" , "ahmed@gmail.com" , 1 , DEFAULT(SSNVISITOR) ,  DEFAULT(APPROVEN));
-INSERT INTO persons(ssn,name,phone,email,adjId,ssnVisitor,approven) VALUES(2, "OMAR" , "69845345" , "omar34@gmail.com" , 2 , 1 , false);
-INSERT INTO persons(ssn,name,phone,email,adjId,ssnVisitor,approven) VALUES(3, "ali" , "786786787" , "ali87@gmail.com" , 3 ,DEFAULT(SSNVISITOR) ,  DEFAULT(APPROVEN));
-INSERT INTO persons(ssn,name,phone,email,adjId,ssnVisitor,approven) VALUES(4, "mostafa" , "5876555" , "Mo87@gmail.com" , 4 ,DEFAULT(SSNVISITOR) ,  DEFAULT(APPROVEN));
+INSERT INTO persons(ssn,name,phone,email,adjId,ssnVisitor,approven) VALUES('1', "AHMED" , "045454545" , "ahmed@gmail.com" , 1 , DEFAULT(SSNVISITOR) ,  DEFAULT(APPROVEN));
+INSERT INTO persons(ssn,name,phone,email,adjId,ssnVisitor,approven) VALUES('2', "OMAR" , "69845345" , "omar34@gmail.com" , 2 , 1 , false);
+INSERT INTO persons(ssn,name,phone,email,adjId,ssnVisitor,approven) VALUES('3', "ali" , "786786787" , "ali87@gmail.com" , 3 ,DEFAULT(SSNVISITOR) ,  DEFAULT(APPROVEN));
+INSERT INTO persons(ssn,name,phone,email,adjId,ssnVisitor,approven) VALUES('4', "mostafa" , "5876555" , "Mo87@gmail.com" , 4 ,DEFAULT(SSNVISITOR) ,  DEFAULT(APPROVEN));
 
 
 CREATE TABLE foundation(
 	id int AUTO_INCREMENT ,
-	ssnPerson int,
-	name VARCHAR(250),
-    place VARCHAR(250),
+	ssnPerson VARCHAR(255),
+	name VARCHAR(255),
+    place VARCHAR(255),
     foundationId int,
     licenceId int,
     idNumberRoom int,
