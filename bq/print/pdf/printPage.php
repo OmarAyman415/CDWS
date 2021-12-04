@@ -76,16 +76,12 @@ if (isset($_POST['submit'])) {
               <div class="row">
                 
                   <h4 class=" personSSN"><?php echo $posts[0]['ssn']; ?></h4>
-                  <h5 class="personName"><?php echo $personName ?></h5>
-                  <h5 class="foundName"><?php echo $foundationName ?></h5>
-                  <h5 class="foundId"><?php echo $foundationId ?></h5>
-                  <h5 class="foundplace"><?php echo $foundationPlace ?></h5>
-              
+                  <h4 class="personName"><?php echo $personName ?></h4>
+                  <h4 class="foundName"><?php echo $foundationName ?></h4>
+                  <h4 class="foundId"><?php echo $foundationId ?></h4>
+                  <h4 class="foundplace"><?php echo $foundationPlace ?></h4>
                   <img class="prof" style="width: 160px;" src="../../../3mda/Website Form/images/<?php echo $image; ?>"  />
-              
-                
-                  
-               
+
               </div>
             </div>
           </div>

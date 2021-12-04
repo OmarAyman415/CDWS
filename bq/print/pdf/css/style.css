@@ -22,3 +22,27 @@ img.prof {
   margin-left: 70%;
   margin-top: 21%;
 }
+
+.personName {
+  position: absolute;
+  margin-left: 70%;
+  margin-top: 24%;
+}
+
+.foundName {
+  position: absolute;
+  margin-left: 70%;
+  margin-top: 27%;
+}
+
+.foundId {
+  position: absolute;
+  margin-left: 70%;
+  margin-top: 30%;
+}
+
+.foundplace {
+  position: absolute;
+  margin-left: 70%;
+  margin-top: 32%;
+}
