@@ -87,6 +87,7 @@ require('../../../Config/Database.php');
                 //if the search is empty display all records from Database
                 if ($searchSSN == "") {
                     $query = 'SELECT
+                  p.id,
                   p.ssn,
                   p.name, 
                   f.name as foundation_name,
@@ -232,15 +233,17 @@ require('../../../Config/Database.php');
                           echo $post['phone'];
                           ?></td>
                           <!-- National ID -->
-                          <td>$14</td>
+                          <td><?php 
+                          echo $post['ssn'];
+                          ?></td>
                           <!-- Name -->
                           <td><?php 
                           echo $post['name'];
                           ?>
-                          <!-- SSN Or ID-->
+                          <!-- ID-->
                           </td>
-                          <th scope="row" class="scope" name="ssn"><?php 
-                          echo $post['ssn'];
+                          <th scope="row" class="scope" name="id"><?php 
+                          echo $post['id'];
                           ?></th>
                           </tr>
                           <?php } ?>

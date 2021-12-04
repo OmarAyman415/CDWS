@@ -2,6 +2,7 @@
 require('../../Config/Database.php');
   //create query
   $query = 'SELECT
+  p.id,
   p.ssn,
   p.name, 
   f.name as foundation_name,
@@ -181,16 +182,18 @@ require('../../Config/Database.php');
                           <td><?php 
                           echo $post['phone'];
                           ?></td>
-                          <!-- National ID -->
-                          <td>$14</td>
+                          <!-- National ID or SSN-->
+                          <td><?php 
+                          echo $post['ssn'];
+                          ?></td>
                           <!-- Name -->
                           <td><?php 
                           echo $post['name'];
                           ?>
-                          <!-- SSN Or ID-->
+                          <!-- ID-->
                           </td>
                           <th scope="row" class="scope" name="ssn"><?php 
-                          echo $post['ssn'];
+                          echo $post['id'];
                           ?></th>
                           </tr>
                           <?php } ?>

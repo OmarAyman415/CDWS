@@ -25,7 +25,7 @@ require('../../../Config/Database.php');
 		move_uploaded_file($p2,$uploads_dir.'/'.$NIdBName);
 		move_uploaded_file($p3,$uploads_dir.'/'.$PIName);
 
-		$query = "INSERT INTO persons  VALUES({$personSSN},'{$personName}',{$personPhone},'{$personEmail}',{$adjID},{$pVisitor},DEFAULT(APPROVEN),'{$NIdFName}','{$NIdBName}','{$PIName}');";
+		$query = "INSERT INTO persons(ssn,name,phone,email,adjId,ssnVisitor,approven,NIdFrontImage,NIdBackImage,PImage)  VALUES({$personSSN},'{$personName}',{$personPhone},'{$personEmail}',{$adjID},{$pVisitor},DEFAULT(APPROVEN),'{$NIdFName}','{$NIdBName}','{$PIName}');";
 		echo $query;
 		mysqli_query($conn,$query);
 		
