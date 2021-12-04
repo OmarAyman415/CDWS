@@ -1,5 +1,5 @@
 <?php
-require('../../../Config/Database.php');
+require('../../Config/Database.php');
 	if( isset($_POST['submit'])){
 		$personSSN = $_POST['pSSN'];
 		$personName = $_POST['pName'];
