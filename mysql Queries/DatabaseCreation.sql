@@ -36,7 +36,7 @@ INSERT INTO category VALUES(3 , "يخت سفاري");
 
 CREATE TABLE persons( -- THAT TABLE STANDS FOR THE OWNERS
     id int AUTO_INCREMENT,
-	ssn VARCHAR(255),
+	ssn VARCHAR(255) UNIQUE,
     name VARCHAR(255),
     phone VARCHAR(255),
 	email VARCHAR(255),
