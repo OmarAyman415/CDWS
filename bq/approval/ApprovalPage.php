@@ -206,6 +206,10 @@ require('../../Config/Database.php');
           </div>
         
       </div>
+
+      <div class="toSearchPage d-flex justify-content-center">
+        <a href="../print/search/searchPage.php" class="link"><button class="btn btn-primary link">Search</button></a>
+      </div>
     </section>
     <!-- Scripts -->
     <script src="js/jquery.min.js"></script>

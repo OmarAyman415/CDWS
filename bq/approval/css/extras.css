@@ -1,3 +1,18 @@
 body {
   background-image: url(../images/bg.jpg);
 }
+
+.btn.btn-primary.link {
+  background: #8a2d3c;
+  width: 160px;
+  height: 70px;
+  border: none;
+  border-radius: 5px;
+  font-size: large;
+}
+
+.btn.btn-primary.link:hover,
+.btn.btn-primary.link:focus {
+  border-color: #344146 !important;
+  background: #344146 !important;
+}

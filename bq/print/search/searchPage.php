@@ -259,7 +259,9 @@ require '../../../Config/Database.php';
                        <?php endforeach; ?> <!-- End OF the Foreach loop -->
                 </tbody>
               </table>
-            
+              <div class="toSearchPage d-flex justify-content-center">
+        <a href="../../approval/ApprovalPage.php" class="link"><button class="btn btn-primary link">Search</button></a>
+      </div>
         </div>
 
     <!-- Scripts -->
