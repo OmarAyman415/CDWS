@@ -260,7 +260,7 @@ require '../../../Config/Database.php';
                 </tbody>
               </table>
               <div class="toSearchPage d-flex justify-content-center">
-        <a href="../../approval/ApprovalPage.php" class="link"><button class="btn btn-primary link">Search</button></a>
+        <a href="../../approval/ApprovalPage.php" class="link"><button class="btn btn-primary link">Approval</button></a>
       </div>
         </div>
 
