@@ -66,11 +66,12 @@ require('../../Config/Database.php');
     />
 
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/extras.css">
   </head>
   <body>
     <section class="ftco-section">
       <div class="fluid-container">
-        <div class="row">
+        
           <div class="col-md-12">
             <!-- Table -->
             <div class="table-wrap">
@@ -203,7 +204,7 @@ require('../../Config/Database.php');
             </div>
             <!-- End of Table -->
           </div>
-        </div>
+        
       </div>
     </section>
     <!-- Scripts -->
