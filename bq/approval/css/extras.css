@@ -1,3 +1,6 @@
+body {
+  background-image: url(../images/bg.jpg);
+}
 .printPage {
   margin-left: 50%;
 }

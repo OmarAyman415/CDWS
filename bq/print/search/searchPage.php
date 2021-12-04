@@ -1,7 +1,6 @@
 <?php
 //get Database Connection
-require('../../../Config/Database.php');
-
+require '../../../Config/Database.php';
 
 ?>
 <html>
@@ -42,7 +41,7 @@ require('../../../Config/Database.php');
               id="search"
               name="search"
               type="text"
-              value=" "
+              value=""
               placeholder="What are you looking for?"
             />
           </div>
@@ -82,11 +81,15 @@ require('../../../Config/Database.php');
                 $searchSSN = "";
                 if (isset($_POST['submit'])) {
                   $searchSSN = $_POST['search'];
+                  
                 }
+
                 $query = "";
+      
                 //if the search is empty display all records from Database
                 if ($searchSSN == "") {
-                    $query = 'SELECT
+                  
+                  $query = 'SELECT
                   p.id,
                   p.ssn,
                   p.name, 
@@ -109,10 +112,13 @@ require('../../../Config/Database.php');
                   LEFT JOIN 
                   adj_id a ON a.id = p.adjId
                   LEFT JOIN
-                  authorize auth ON auth.ssn = p.ssnVisitor';
+                  authorize auth ON auth.ssn = p.ssnVisitor
+                  WHERE p.approven = "1";
+                  ';
                 }
                 // else display the searched ID or SSN
                 else{
+                  
                   $query = 'SELECT
                   p.ssn,
                   p.name,
@@ -136,22 +142,25 @@ require('../../../Config/Database.php');
                   adj_id a ON a.id = p.adjId
                   LEFT JOIN
                   authorize auth ON auth.ssn = p.ssnVisitor
-
-                  WHERE p.ssn = '. $searchSSN .' ;';
+                  WHERE p.approven = "1" AND p.ssn = '. $searchSSN .' ;';
                 }
                 
+                
+                
                 //Get results
-                 $result = mysqli_query($conn, $query);
-              
+                $result = mysqli_query($conn, $query);
                 //Fetch data
-                 $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
+                $posts = [];
+                if($result)
+                  $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                else 
+                  echo "<script> alert('Failed query.') </script>";
                 ?>
 
                 <!-- Table body -->
                 <tbody>
                       <?php foreach($posts as $post) :?>
-                        <?php if($post['approven'] == "1" ){ ?>
+                        <?php if(1){ ?>
                         <tr>
                           <td>
                             <!-- form of Approval and Denial  buttons  -->
