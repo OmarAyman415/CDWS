@@ -43,7 +43,7 @@ CREATE TABLE persons( -- THAT TABLE STANDS FOR THE OWNERS
     adjId int,
     ssnVisitor int DEFAULT NULL,
     approven boolean DEFAULT NULL,
-	PRIMARY KEY(ssn),
+	PRIMARY KEY(id),
 	FOREIGN KEY (adjId) REFERENCES adj_id(id),
 	FOREIGN KEY (ssnVisitor) REFERENCES authorize(ssn),
     NIdFrontImage VARCHAR(255) ,
