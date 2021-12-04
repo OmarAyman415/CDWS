@@ -80,7 +80,7 @@ if (isset($_POST['submit'])) {
                   <h4 class="foundName"><?php echo $foundationName ?></h4>
                   <h4 class="foundId"><?php echo $foundationId ?></h4>
                   <h4 class="foundplace"><?php echo $foundationPlace ?></h4>
-                  <img class="prof" style="width: 160px;" src="../../../bq/Website Form/images/<?php echo $image; ?>"  />
+                  <img class="prof" style="width: 160px;" src="../../../form/images/<?php echo $image; ?>"  />
               </div>
             </div>
           </div>
