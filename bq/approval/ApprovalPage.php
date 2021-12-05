@@ -31,13 +31,7 @@ require('../../Config/Database.php');
 
   //Fetch data
   $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
-                    
-  //see the data
-      //var_dump($posts);
-      //print_r($posts[0]);
-      //var_dump($posts[1]['approven']);
-      //free the result
-      
+                 
   //free result Value
   mysqli_free_result($result);
 

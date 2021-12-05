@@ -1,7 +1,6 @@
 <?php
 //get Database Connection
 require '../../../Config/Database.php';
-
 ?>
 <html>
   <head>
@@ -12,7 +11,6 @@ require '../../../Config/Database.php';
       href="https://fonts.googleapis.com/css?family=Poppins"
       rel="stylesheet"
     />
-    
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/extras.css">
@@ -80,15 +78,12 @@ require '../../../Config/Database.php';
                 // Get the input from the search bar
                 $searchSSN = "";
                 if (isset($_POST['submit'])) {
-                  $searchSSN = $_POST['search'];
-                  
+                  $searchSSN = $_POST['search']; 
                 }
 
                 $query = "";
-      
                 //if the search is empty display all records from Database
-                if ($searchSSN == "") {
-                  
+                if ($searchSSN == "") { 
                   $query = 'SELECT
                   p.id,
                   p.ssn,
@@ -118,7 +113,6 @@ require '../../../Config/Database.php';
                 }
                 // else display the searched ID or SSN
                 else{
-                  
                   $query = 'SELECT
                   p.ssn,
                   p.name,
@@ -144,9 +138,7 @@ require '../../../Config/Database.php';
                   authorize auth ON auth.ssn = p.ssnVisitor
                   WHERE p.approven = "1" AND p.ssn = '. $searchSSN .' ;';
                 }
-                
-                
-                
+
                 //Get results
                 $result = mysqli_query($conn, $query);
                 //Fetch data
@@ -159,19 +151,18 @@ require '../../../Config/Database.php';
 
                 <!-- Table body -->
                 <tbody>
-                      <?php foreach($posts as $post) :?>
-                        <?php if(1){ ?>
+                      <?php foreach($posts as $post) :?>    
+                        <!-- Record row -->
                         <tr>
                           <td>
                             <!-- form of Approval and Denial  buttons  -->
                             <form action="../pdf/printPage.php"  method="post">
                               <!-- Approval buttton -->
                               <input id=<?php echo $post['ssn'] ?> type="submit" class="btn btn-primary approval" name="submit" value="Print">
-                                <!-- input field that stores SSN of the record to push it to appro_deny.php -->
+                              <!-- input field that stores SSN of the record to push it to appro_deny.php -->
                               <input type="text" name="ssn" value="<?php echo $post['ssn'] ?>" style="display:none;">
                             </form>
                           </td>
-
                           <!-- Authorized ID member -->
                           <td><?php
                           // As the defualt value in database is NULL
@@ -254,16 +245,14 @@ require '../../../Config/Database.php';
                           <th scope="row" class="scope" name="id"><?php 
                           echo $post['id'];
                           ?></th>
-                          </tr>
-                          <?php } ?>
+                          </tr>    
                        <?php endforeach; ?> <!-- End OF the Foreach loop -->
                 </tbody>
               </table>
               <div class="toSearchPage d-flex justify-content-center">
-        <a href="../../approval/ApprovalPage.php" class="link"><button class="btn btn-primary link">Approval</button></a>
-      </div>
-        </div>
-
+                <a href="../../approval/ApprovalPage.php" class="link"><button class="btn btn-primary link">Approval</button></a>
+              </div>
+    </div>
     <!-- Scripts -->
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.js"></script>

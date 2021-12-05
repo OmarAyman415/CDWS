@@ -2,6 +2,7 @@
 <?php
 require('../../../Config/Database.php');
 if (isset($_POST['submit'])) {
+    // SSN value with be searched with, to get the  record from the database
     $personSSN = $_POST['ssn'];
     
     $query = 'SELECT
@@ -37,7 +38,7 @@ if (isset($_POST['submit'])) {
               
     //Fetch data
         $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
-        $image = $posts[0]['NIdFrontImage'];
+        $image = $posts[0]['PImage'];
 
         $personName = $posts[0]['name'];
         $personSSN = $posts[0]['ssn'];
@@ -73,8 +74,8 @@ if (isset($_POST['submit'])) {
         <div class="col-md-12" id="test">
           <div class="card" id="invoice">
             <div  class="card-header bg-transparent header-elements-inline">
+              <!-- record data will be printed on the selected design with position absolute in css -->
               <div class="row">
-                
                   <h4 class=" personSSN"><?php echo $posts[0]['ssn']; ?></h4>
                   <h4 class="personName"><?php echo $personName ?></h4>
                   <h4 class="foundName"><?php echo $foundationName ?></h4>
