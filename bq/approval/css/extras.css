@@ -1,9 +1,12 @@
 body {
-  background-image: url(../images/bg.jpg);
+  background-image: url(../images/bg-2.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .btn.btn-primary.link {
-  background: rgb(0, 173, 95);
+  background: #2c82c9;
   width: 160px;
   height: 70px;
   border: none;
@@ -13,6 +16,6 @@ body {
 
 .btn.btn-primary.link:hover,
 .btn.btn-primary.link:focus {
-  border-color: #344146 !important;
-  background: #344146 !important;
+  border-color: #2cc990 !important;
+  background: #2cc990 !important;
 }

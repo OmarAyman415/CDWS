@@ -13,9 +13,10 @@ html {
  * Remove the margin in all browsers (opinionated).
  */
 body {
-  background-image: url(../images/bg.jpg);
+  background-image: url(../images/bg-3.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-size: cover;
 }
 
 /**
@@ -936,13 +937,13 @@ button {
   cursor: pointer;
   position: relative;
   z-index: 0;
-  background: #00ad5f;
+  background: #2c82c9;
   transition: all 0.2s ease-out, color 0.2s ease-out;
   font-weight: 300;
 }
 
 .s130 form .inner-form .input-field.second-wrap .btn-search:hover {
-  background: #009451;
+  background: #2cc990;
 }
 
 .s130 form .inner-form .input-field.second-wrap .btn-search:focus {
