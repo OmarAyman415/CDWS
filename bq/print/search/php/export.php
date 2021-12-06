@@ -1,25 +1,11 @@
 <?php
 require ('../../../../Config/Database.php');
 
-mysqli_set_charset($conn, "utf8");
 
-//Filter the excel data
-function filterData(&$str){
-    $str = preg_replace("/\t/", "\\t" , $str);
-    $str = preg_replace("/\r?\n/" , "\\n" , $str);
-    if (strstr($str , '"')) {
-        $str = '"' . str_replace('"' , '""' , $str) . '"';
-    }
-}
-
-// Excel File name for download
-$fileName = "members_export_data-" . date('Ymd') . ".xls";
+mysqli_query( $conn,"SET NAMES 'utf-8'");
 
 // Column Names
 $fields = array('id' , 'ssn' , 'name' , 'foundation_name' , 'foundationId' , 'licenceId' , 'idNumberRoom' , 'place' , 'state' , 'authorize_phone' , 'idMember' , 'phone' , 'email' , 'adjId' , 'ssnVisitor' , 'approven');
-
-//Display column names as first row
-$excelData = implode("\t" , array_values($fields)) . "\n";
 
 // the Query
 $query = 'SELECT
@@ -51,33 +37,37 @@ $query = 'SELECT
 //get records from database
 $result = $conn->query($query);
 
-
 //echo "<br>";
 if ($result->num_rows > 0) {
-    $i = 0;
+    $delimiter = ",";
+    // Excel File name for download
+    $fileName = "members_export_data-" . date('Y-m-d') . ".csv";
+
+    // Create a file pointer
+    $f = fopen('php://memory' , 'w');
+
+    fputcsv($f, $fields, $delimiter);
+
     //output each record of the data
     while ($row = $result->fetch_assoc()) {
-       // echo $i++ . " Record : ";
+       
         $rowData = array($row['id'],$row['ssn'],$row['name'],$row['foundation_name'],$row['foundationId'],$row['licenceId'],$row['idNumberRoom'],$row['place'],$row['state'],$row['authorize_phone'],$row['idMember'],$row['phone'],$row['email'],$row['adjId'],$row['ssnVisitor'],$row['approven']);
         
-        $excelData .= implode("\t" , array_values($rowData)) . "\n";
-        
+        fputcsv($f, $rowData, $delimiter);
     }
+    fseek($f, 0);
+
+    //headers for download
+    header('Content-Encoding: UTF-8');
+    header("Content-Type: text/csv; charset=UTF-8;");
+    header("Content-Disposition: attachment; filename=$fileName");
+    header("Cache-Control: cache, must-revalidate");
+    header("Pragma: public");
+    header('Content-Type: text/xml,  charset=UTF-8; encoding=UTF-8');
+    echo "\xEF\xBB\xBF"; // UTF-8 BOM
+    
+    fpassthru($f);
 }
-else{
-    $excelData .= 'No records found...' . "\n";
-}
-
-
-
-//headers for download
-header("Content-Type: application/xls");
-header("Content-Disposition: attachment; filename=$fileName");
-header("Pragma: no-cache"); 
-header("Expires: 0");
-
-//Render excel data
-echo $excelData;
 
 exit;
 

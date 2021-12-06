@@ -61,6 +61,7 @@ require('../../Config/Database.php');
 
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/extras.css">
+    
   </head>
   <body>
     <section class="ftco-section">
@@ -100,11 +101,12 @@ require('../../Config/Database.php');
                             <!-- form of Approval and Denial  buttons  -->
                             <form action="php/appro_deny.php" method="post">
                               <!-- Approval buttton -->
-                              <input id=<?php echo $post['ssn'] ?> type="submit" class="btn btn-primary approval" name="submit" value="Approval">
+                              <input id=<?php echo $post['ssn'] ?> onclick="typeValue('Ahmed')" type="submit" class="btn btn-primary approval" name="submit" value="Approval">
                               <!-- input field that stores SSN of the record to push it to appro_deny.php -->
                               <input type="text" name="ssn" value="<?php echo $post['ssn'] ?>" style="display:none;">
                               <!-- Denial Button -->
                               <input id=<?php echo $post['ssn'] ?> type="submit" class="btn btn-primary denial" name="denial" value="Denial">
+                              
                             </form>
                           </td>
 
@@ -204,8 +206,11 @@ require('../../Config/Database.php');
       <div class="toSearchPage d-flex justify-content-center">
         <a href="../print/search/searchPage.php" class="link"><button class="btn btn-primary link">Search</button></a>
       </div>
+
+      
     </section>
     <!-- Scripts -->
+   
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
