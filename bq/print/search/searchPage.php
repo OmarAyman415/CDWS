@@ -250,7 +250,18 @@ require '../../../Config/Database.php';
                 </tbody>
               </table>
               <div class="toSearchPage d-flex justify-content-center">
-                <a href="../../approval/ApprovalPage.php" class="link"><button class="btn btn-primary link">Approval</button></a>
+                <a href="../../approval/ApprovalPage.php" class="link">
+                  <button class="btn btn-primary link">
+                    Approval
+                  </button>
+                </a>
+              </div>
+              <div class="export">
+                <a href="php/export.php" class="">
+                  <button class="btn btn-primary link">
+                    Export
+                  </button>
+                </a>
               </div>
     </div>
     <!-- Scripts -->
