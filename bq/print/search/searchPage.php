@@ -18,8 +18,11 @@ require '../../../Config/Database.php';
   </head>
   <body>
     <div class="s130">
+      
       <form  method="post">
+      
         <div class="inner-form">
+        
           <div class="input-field first-wrap">
             <div class="svg-wrapper">
               <!-- Search icon -->
@@ -48,6 +51,7 @@ require '../../../Config/Database.php';
               SEARCH
             </button>
           </div>
+          
         </div>
         
       </form>
@@ -249,20 +253,20 @@ require '../../../Config/Database.php';
                        <?php endforeach; ?> <!-- End OF the Foreach loop -->
                 </tbody>
               </table>
-              <div class="toSearchPage d-flex justify-content-center">
+              <div class="toSearchPage d-flex justify-content-center ">
                 <a href="../../approval/ApprovalPage.php" class="link">
                   <button class="btn btn-primary link">
                     Approval
                   </button>
                 </a>
-              </div>
-              <div class="export">
-                <a href="php/export.php" class="">
+                <a href="php/export.php" >
                   <button class="btn btn-primary link">
                     Export
                   </button>
                 </a>
               </div>
+              
+              
     </div>
     <!-- Scripts -->
     <script src="js/jquery.min.js"></script>
